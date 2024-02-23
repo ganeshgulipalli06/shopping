@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Shopping Website</title>
+    <style>
+        /* Logo styles */
+        .logo {
+            width: 150px;
+            height: 150px;
+            background: radial-gradient(circle at 30% 70%, #3498db, #e74c3c);
+            position: relative;
+            border-radius: 50%;
+            color: white;
+        }
+
+        .logo::before,
+        .logo::after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            background: radial-gradient(circle, #e74c3c, transparent);
+            border-radius: 50%;
+        }
+
+        .logo::before {
+            top: 20%;
+            left: 15%;
+        }
+
+        .logo::after {
+            bottom: 20%;
+            right: 15%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="logo" style="color: aliceblue;">shop</div>
+</body>
+
+</html>

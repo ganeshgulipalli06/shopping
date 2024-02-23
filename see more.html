@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* Logo styles */
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            font-family: 'Arial', sans-serif;
+            font-weight: bold;
+            color: #333;
+            background: linear-gradient(to right, #3498db, #2ecc71);
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Circle in the middle (represents a shopping bag) */
+        .logo::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 60px;
+            background-color: #fff;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        /* Handles on the sides of the shopping bag */
+        .logo::before {
+            content: '';
+            display: block;
+            width: 20px;
+            height: 80px;
+            background-color: #fff;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1;
+        }
+
+        .logo::before:first-child {
+            left: 10%;
+        }
+
+        .logo::before:last-child {
+            right: 10%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="logo">Y</div>
+</body>
+
+</html>

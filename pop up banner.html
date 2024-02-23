@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clothing Offers</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4; /* Background color for the entire page */
+        }
+
+        #offer-banner {
+            background-color: #ff4500; /* Background color for the banner */
+            padding: 10px;
+            text-align: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        #offer-container {
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        .offer-item {
+            display: inline-block;
+            margin-right: 20px;
+            font-size: 18px;
+            color: #fff; /* Text color for offer names */
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .offer-item:hover {
+            color: #ffd700; /* Text color on hover */
+        }
+    </style>
+</head>
+<body>
+
+<div id="offer-banner">
+    <div id="offer-container">
+        <div class="offer-item" style="color: #006400;">50% Off on Winter Collection</div>
+        <div class="offer-item" style="color: #1e90ff;">New Arrivals - Shop Now!</div>
+        <div class="offer-item" style="color: #8b0000;">Free Shipping on Orders over $50</div>
+        <div class="offer-item" style="color: #4b0082;">Limited-Time Flash Sale</div>
+        <!-- Add more offer items as needed with different colors -->
+    </div>
+</div>
+
+<!-- Your main website content goes here -->
+
+<script>
+    // JavaScript for making the offer names scroll horizontally
+    const offerContainer = document.getElementById('offer-container');
+
+    function startMarquee() {
+        const offerItems = document.querySelectorAll('.offer-item');
+        let totalWidth = 0;
+
+        offerItems.forEach(item => {
+            totalWidth += item.offsetWidth + parseInt(getComputedStyle(item).marginRight);
+        });
+
+        offerContainer.style.width = totalWidth + 'px';
+
+        // Make it scroll
+        const animation = offerContainer.animate(
+            { transform: `translateX(${-totalWidth}px)` },
+            {
+                duration: 15000,  // You can adjust the duration of the scroll
+                iterations: Infinity,
+                easing: 'linear'
+            }
+        );
+    }
+
+    startMarquee();
+</script>
+
+</body>
+</html>

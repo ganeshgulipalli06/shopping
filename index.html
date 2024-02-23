@@ -6,7 +6,146 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your Shopping Website</title>
     <style>
-        
+        /* Mobile Styles */
+@media only screen and (max-width: 600px) {
+    /* Header styles for mobile */
+    header {
+        padding: 20px;
+    }
+
+    header img {
+        width: 80px;
+        height: 80px;
+    }
+
+    /* Navigation styles for mobile */
+    nav {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav a {
+        margin: 5px 0;
+    }
+
+    /* Home Section styles for mobile */
+    #home {
+        padding: 20px;
+    }
+
+    .card {
+        width: 100%;
+        height: auto;
+    }
+
+    .card img {
+        height: 150px;
+    }
+
+    /* See More Products Button for mobile */
+    .see-more-button {
+        margin-top: 10px;
+    }
+
+    /* Sections styles for mobile */
+    #mens-wear,
+    #kids-wear,
+    #bridal-collections,
+    #contact,
+    #about {
+        padding: 20px;
+    }
+
+    /* Footer styles for mobile */
+    footer {
+        padding: 10px;
+    }
+
+    /* WhatsApp icon styles for mobile */
+    #whatsapp-icon {
+        bottom: 10px;
+        right: 10px;
+    }
+
+    #whatsapp-icon img {
+        width: 40px;
+        height: 40px;
+    }
+
+    /* Logo styles for mobile */
+    .logo {
+        font-size: 36px;
+        width: 120px;
+        height: 120px;
+    }
+
+    .logo::after {
+        width: 40px;
+        height: 40px;
+    }
+
+    .logo::before {
+        width: 15px;
+        height: 60px;
+    }
+
+    .logo::before:first-child {
+        left: 5%;
+    }
+
+    .logo::before:last-child {
+        right: 5%;
+    }
+
+    /* Offer banner styles for mobile */
+    #offer-banner {
+        padding: 5px;
+    }
+
+    .offer-item {
+        font-size: 14px;
+        margin-right: 10px;
+    }
+
+    /* Banner Section styles for mobile */
+    #banner {
+        padding: 20px;
+    }
+
+    .banner-content h2 {
+        font-size: 28px;
+    }
+
+    .banner-content p {
+        font-size: 16px;
+    }
+
+    .cta-button {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+
+    /* Bridal Wear Offer Banner styles for mobile */
+    #bridal-offer-banner {
+        padding: 30px;
+    }
+
+    .contact-address {
+        font-size: 12px;
+        margin-bottom: 8px;
+    }
+
+    .shop-now-button {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+
+    /* Overlay styles for mobile */
+    .overlay {
+        display: none;
+    }
+}
+
         /* Add your global styles here */
 
         body {

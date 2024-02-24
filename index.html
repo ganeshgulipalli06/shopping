@@ -9,53 +9,6 @@
         /* General styling for larger screens */
 
 /* Home Section */
-#home .card {
-    /* Your existing styles for larger screens */
-}
-
-/* Men's Wear Section */
-#men-wear .card {
-    /* Your existing styles for larger screens */
-}
-
-/* Kids Wear Section */
-#kids-wear .card {
-    /* Your existing styles for larger screens */
-}
-
-/* Bridal Collections Section */
-#bridal-collections .card {
-    /* Your existing styles for larger screens */
-}
-
-/* Media queries for mobile responsiveness */
-
-/* Adjust the styles for screens with a maximum width of 768 pixels (typical tablet width) */
-@media only screen and (max-width: 768px) {
-    /* Home Section */
-    #home .card {
-        width: 100%; /* Make the cards take the full width of the screen */
-        margin: 0 0 20px 0; /* Add some spacing between cards */
-    }
-
-    /* Men's Wear Section */
-    #men-wear .card {
-        width: 100%; /* Make the cards take the full width of the screen */
-        margin: 0 0 20px 0; /* Add some spacing between cards */
-    }
-
-    /* Kids Wear Section */
-    #kids-wear .card {
-        width: 100%; /* Make the cards take the full width of the screen */
-        margin: 0 0 20px 0; /* Add some spacing between cards */
-    }
-
-    /* Bridal Collections Section */
-    #bridal-collections .card {
-        width: 100%; /* Make the cards take the full width of the screen */
-        margin: 0 0 20px 0; /* Add some spacing between cards */
-    }
-}
 
         /* Add your global styles here */
 
@@ -211,7 +164,7 @@
 
             .menu-icon {
                 display: block;
-                order: 1; /* Move the menu icon to the right side */
+                order: 2; /* Move the menu icon to the right side */
             }
         }
         /* Home Section styles */
@@ -281,6 +234,13 @@
         .card {
     /* ... Existing styles ... */
     position: relative; /* Set position to relative for absolute positioning of the tags */
+}
+
+/* Media query for mobile responsiveness */
+@media only screen and (max-width: 768px) {
+    .card {
+        width: calc(33.33% - 20px); /* 3 cards per row with margin */
+    }
 }
 
 .sale-tag,
@@ -876,18 +836,18 @@
          // JavaScript for making the offer names scroll horizontally
    // const offerContainer = document.getElementById('offer-container');
 
-function startMarquee() {
-    const offerItems = document.querySelectorAll('.offer-item');
-    let totalWidth = 0;
+//function startMarquee() {
+   // const offerItems = document.querySelectorAll('.offer-item');
+    //let totalWidth = 0;
 
-    offerItems.forEach(item => {
+    //offerItems.forEach(item => {
         totalWidth += item.offsetWidth + parseInt(getComputedStyle(item).marginRight);
-    });
+    //});
 
-    offerContainer.style.width = totalWidth + 'px';
+    //offerContainer.style.width = totalWidth + 'px';
 
     // Make it scroll
-    const animation = offerContainer.animate(
+    //const animation = offerContainer.animate(
         { transform: `translateX(${-totalWidth}px)` },
         {
             duration: 15000,  // You can adjust the duration of the scroll

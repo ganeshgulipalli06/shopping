@@ -156,8 +156,8 @@
             justify-content: space-between;
             align-items: center;
             position: sticky;
-               top: 0;
-                z-index: 1000;
+            top: 0;
+            z-index: 1000;
         }
 
         header img {
@@ -178,7 +178,13 @@
         }
 
         nav a:hover {
-            color: #ff9900; /* Change the color on hover */
+            color: #ff9900;
+        }
+
+        .menu-icon {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
         }
 
         /* Media query for mobile responsiveness */
@@ -186,16 +192,24 @@
             header {
                 flex-direction: column;
                 align-items: center;
-               
+                text-align: center;
             }
 
             nav {
                 margin-top: 10px;
+                display: flex;
+                justify-content: center;
+                width: 100%;
+                flex-direction: column;
+                align-items: center;
             }
 
             nav a {
+                margin: 10px;
+            }
+
+            .menu-icon {
                 display: block;
-                margin: 10px 0;
             }
         }
 
@@ -483,6 +497,7 @@
             <a href="#shop">Shop</a>
             <a href="#contact">Contact</a>
         </nav>
+        <div class="menu-icon">&#9776;</div>
     </header>
 <!-- Banner Section 
 

@@ -166,50 +166,45 @@
         }
 
         nav {
-            display: flex;
-            align-items: center;
+            display: none;
+            flex-direction: column;
+            align-items: flex-end; /* Change to 'flex-start' for left side */
+            position: absolute;
+            top: 60px; /* Adjust as needed */
+            right: 10px; /* Adjust as needed */
+            background-color: #333;
+            padding: 10px;
         }
 
         nav a {
             color: white;
             text-decoration: none;
-            margin: 0 15px;
-            transition: color 0.3s ease;
-        }
-
-        nav a:hover {
-            color: #ff9900;
+            margin: 10px 0;
+            display: block;
+            text-align: right; /* Change to 'left' for left side */
         }
 
         .menu-icon {
-            display: none;
+            display: block;
             font-size: 24px;
             cursor: pointer;
         }
 
-         /* Media query for mobile responsiveness */
-         @media only screen and (max-width: 768px) {
-            header {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-            }
-
+        /* Media query for mobile responsiveness */
+        @media only screen and (min-width: 769px) {
             nav {
-                display: none;
-                width: 100%;
-                flex-direction: column;
-                align-items: center;
+                display: flex;
+                position: static;
+                background-color: transparent;
+                padding: 0;
             }
 
             nav a {
-                margin: 10px;
-                display: block;
-                text-align: center;
+                margin: 0 15px;
             }
 
             .menu-icon {
-                display: block;
+                display: none;
             }
         }
         /* Home Section styles */

@@ -197,9 +197,7 @@
 
             nav {
                 margin-top: 10px;
-                display: flex;
-                justify-content: center;
-                width: 100%;
+                display: none;
                 flex-direction: column;
                 align-items: center;
             }
@@ -946,6 +944,10 @@ startMarquee();
 
         function closeThankYou() {
             document.getElementById('thank-you-overlay').style.display = 'none';
+        }
+        function toggleNav() {
+            var nav = document.querySelector('nav');
+            nav.style.display = (nav.style.display === 'flex') ? 'none' : 'flex';
         }
     </script>
 </body>

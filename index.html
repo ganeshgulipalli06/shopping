@@ -403,36 +403,89 @@
     cursor: pointer;
     text-decoration: none;
 }
-.overlay {
+.order-form {
             display: none;
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.5);
+            background-color: rgba(0, 0, 0, 0.8);
             justify-content: center;
             align-items: center;
-            z-index: 1;
+            z-index: 1000;
         }
 
-        .order-form, .thank-you {
-            background: #fff;
-            padding: 15px;
-            max-width: 400px;
-            text-align: center;
+        .order-form-content {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
             position: relative;
+            width: 90vw;
+            max-width: 800px; /* Adjust the max-width as needed */
+            text-align: center;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: row;
         }
 
         .close-button {
-            cursor: pointer;
             position: absolute;
             top: 10px;
             right: 10px;
-            font-weight: bold;
+            font-size: 20px;
+            cursor: pointer;
+            color: #555;
+        }
+
+        .order-form h2 {
             color: #333;
         }
 
+        .order-form label {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+            color: #555;
+            text-align: left;
+        }
+
+        .order-form input,
+        .order-form select {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        .order-form select {
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            background: url('https://img.icons8.com/material/24/000000/down2.png') no-repeat;
+            background-position: calc(100% - 10px) center;
+            background-size: 20px;
+        }
+
+        
+
+        .order-form button {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .order-form button:hover {
+            background-color: #555;
+        }
     </style>
 </head>
 
@@ -772,45 +825,47 @@
            < !-- Add more cards as needed -->
         </div>
     </section>
-    <div class="overlay" id="overlay">
-        <div class="order-form">
-            <span class="close-button" onclick="closeOrderForm()">X</span>
-            <h2>Order Details</h2>
-            <form id="order-details-form">
-                <input type="hidden" id="product-name">
-                <input type="hidden" id="product-price">
+      <div id="order-form" class="order-form">
+        <div class="order-form-content">
+            <span class="close-button" onclick="closeOrderForm()">&times;</span>
+            <div style="flex: 1;">
+                <h2>Order Form</h2>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
 
-                <label for="customer-name">Customer Name:</label>
-                <input type="text" id="customer-name" required>
+                <label for="address">Address:</label>
+                <input type="text" id="address" name="address" required>
 
                 <label for="pincode">Pincode:</label>
-                <input type="text" id="pincode" required>
+                <input type="text" id="pincode" name="pincode" required>
 
-                <label for="country">Country:</label>
-                <input type="text" id="country" required>
-                
-
-                <label for="payment-options">Payment Options:</label>
-                <select id="payment-options" required>
-                    <option value="card">Credit Card</option>
+                <label for="phone">Phone:</label>
+                <input type="text" id="phone" name="phone" required>
+            </div>
+            <div style="flex: 1;">
+                <label for="payment">Payment Method:</label>
+                <select id="payment" name="payment" onchange="toggleCardDetails()">
+                    <option value="credit">Credit Card</option>
+                    <option value="debit">Debit Card</option>
                     <option value="cod">Cash on Delivery</option>
                 </select>
 
-                <label for="card-number">Card Number:</label>
-                <input type="text" id="card-number">
+                <div id="card-details" class="card-details">
+                    <label for="card-number">Card Number:</label>
+                    <input type="text" id="card-number" name="card-number">
 
-                <button type="button" onclick="placeOrder()">Place Order</button>
-            </form>
+                    <label for="expiry-date">Expiry Date:</label>
+                    <input type="text" id="expiry-date" name="expiry-date">
+
+                    <label for="cvv">CVV:</label>
+                    <input type="text" id="cvv" name="cvv">
+                </div>
+
+                <button onclick="confirmOrder()">Confirm Order</button>
+            </div>
         </div>
     </div>
 
-    <div class="overlay" id="thank-you-overlay">
-        <div class="thank-you">
-            <span class="close-button" onclick="closeThankYou()">X</span>
-            <h2>Thank you for shopping!</h2>
-            <p>Visit again soon.</p>
-        </div>
-    </div>
     </script>
 <!-- WhatsApp icon -->
 <div id="whatsapp-icon" onclick="redirectToWhatsApp()">
@@ -848,16 +903,7 @@
 
     // Make it scroll
     //const animation = offerContainer.animate(
-        { transform: `translateX(${-totalWidth}px)` },
-        {
-            duration: 15000,  // You can adjust the duration of the scroll
-            iterations: Infinity,
-            easing: 'linear'
-        }
-    );
-}
-
-startMarquee();
+       
       //  function viewCardDetails(name, description, image) {
             alert(`Card: ${name}\nDescription: ${description}`);
             // You can add more functionality, such as displaying a modal with detailed card information.
@@ -872,43 +918,49 @@ startMarquee();
     window.open(whatsappUrl, '_blank');
   }
   function showOrderForm(productName, price) {
-            document.getElementById('overlay').style.display = 'flex';
-            document.getElementById('product-name').value = productName;
-            document.getElementById('product-price').value = price;
+            var orderForm = document.getElementById('order-form');
+            var cardDetails = document.getElementById('card-details');
+
+            // Reset card details visibility
+            cardDetails.style.display = 'none';
+
+            // Set initial values (you can update this based on the product details)
+            document.getElementById('name').value = '';
+            document.getElementById('address').value = '';
+            document.getElementById('pincode').value = '';
+            document.getElementById('phone').value = '';
+            document.getElementById('payment').value = 'credit';
+            document.getElementById('card-number').value = '';
+            document.getElementById('expiry-date').value = '';
+            document.getElementById('cvv').value = '';
+
+            // Show/hide card details based on the selected payment option
+            toggleCardDetails();
+
+            // Show the order form
+            orderForm.style.display = 'flex';
+        }
+
+        function toggleCardDetails() {
+            var paymentOption = document.getElementById('payment').value;
+            var cardDetails = document.getElementById('card-details');
+
+            if (paymentOption === 'credit' || paymentOption === 'debit') {
+                cardDetails.style.display = 'block';
+            } else {
+                cardDetails.style.display = 'none';
+            }
         }
 
         function closeOrderForm() {
-            document.getElementById('overlay').style.display = 'none';
+            var orderForm = document.getElementById('order-form');
+            orderForm.style.display = 'none';
         }
 
-        function placeOrder() {
-            const productName = document.getElementById('product-name').value;
-            const productPrice = document.getElementById('product-price').value;
-            const customerName = document.getElementById('customer-name').value;
-            const pincode = document.getElementById('pincode').value;
-            const country = document.getElementById('country').value;
-            const paymentOptions = document.getElementById('payment-options').value;
-            const cardNumber = document.getElementById('card-number').value || 'N/A';
-
-            console.log('Order Details:');
-            console.log('Product Name:', productName);
-            console.log('Product Price:', productPrice);
-            console.log('Customer Name:', customerName);
-            console.log('Pincode:', pincode);
-            console.log('Country:', country);
-            console.log('Payment Options:', paymentOptions);
-            console.log('Card Number:', cardNumber);
-
-            document.getElementById('order-details-form').reset();
-            document.getElementById('overlay').style.display = 'none';
-            document.getElementById('thank-you-overlay').style.display = 'flex';
-            setTimeout(closeThankYou, 10000);
+        function confirmOrder() {
+            alert('Order Confirmed!');
+            closeOrderForm();
         }
-
-        function closeThankYou() {
-            document.getElementById('thank-you-overlay').style.display = 'none';
-        }
-       
     </script>
      <script>
         function toggleNav() {

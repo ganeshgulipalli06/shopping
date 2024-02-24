@@ -493,7 +493,7 @@
         <img src="your-logo.png" alt="Logo">
         <nav>
             <a href="#home">Home</a>
-            <a href="#about">About Us</a>
+            <a href="#about">About</a>
             <a href="#shop">Shop</a>
             <a href="#contact">Contact</a>
         </nav>
@@ -873,7 +873,7 @@
     <!-- JavaScript for card details -->
     <script>
          // JavaScript for making the offer names scroll horizontally
-    const offerContainer = document.getElementById('offer-container');
+   // const offerContainer = document.getElementById('offer-container');
 
 function startMarquee() {
     const offerItems = document.querySelectorAll('.offer-item');
@@ -947,9 +947,12 @@ startMarquee();
         function closeThankYou() {
             document.getElementById('thank-you-overlay').style.display = 'none';
         }
+       
+    </script>
+     <script>
         function toggleNav() {
             var nav = document.querySelector('nav');
-            nav.style.display = (nav.style.display === 'flex') ? 'none' : 'flex';
+            nav.style.display = (nav.style.display === 'flex' || nav.style.display === '') ? 'none' : 'flex';
         }
     </script>
 </body>

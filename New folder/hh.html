@@ -15,13 +15,59 @@
             background-color: #f4f4f4;
         }
 
-        .navbar {
+        /* Header Styles */
+        header {
             background-color: #333;
-            padding: 15px;
             color: #fff;
+            padding: 10px;
             text-align: center;
             display: flex;
             justify-content: space-between;
+            align-items: center;
+        }
+
+        header img {
+            width: 50px; /* Adjust the width of the logo */
+            height: auto; /* Maintain aspect ratio */
+        }
+
+        .menu-icon {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .menu-icon .line {
+            width: 30px;
+            height: 3px;
+            background-color: #fff;
+            margin: 6px 0;
+        }
+
+        @media only screen and (max-width: 600px) {
+            .menu-icon {
+                display: flex;
+            }
+
+            header img {
+                display: none;
+            }
+        }
+
+        /* Navigation Styles */
+        nav {
+            background-color: #333;
+            padding: 10px;
+            display: flex;
+            justify-content: right;
+            align-items: center;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px;
+            margin-right: 10px;
         }
 
         .cart-icon {
@@ -33,16 +79,14 @@
             border-radius: 50%;
             text-align: center;
             line-height: 30px;
-            margin-right: 10px;
             cursor: pointer;
         }
 
-        .cart-section {
-            display: flex;
-            align-items: center;
-            padding: 10px;
+        .cart-icon:hover {
+            background-color: #45a049;
         }
 
+        /* Product Card Styles */
         .product-card {
             background-color: #fff;
             border-radius: 10px;
@@ -52,7 +96,6 @@
             width: 300px;
             cursor: pointer;
             transition: transform 0.3s ease;
-            position: relative;
         }
 
         .product-card:hover {
@@ -126,22 +169,22 @@
             color: #555;
         }
 
-        .order-form {
+        .contact-form {
             display: none;
         }
 
-        .order-form-content {
+        .contact-form-content {
             display: flex;
             flex-direction: column;
             align-items: center;
         }
 
-        .order-form label {
+        .contact-form label {
             margin-bottom: 10px;
             font-weight: bold;
         }
 
-        .order-form input {
+        .contact-form input {
             padding: 8px;
             margin-bottom: 15px;
             width: 100%;
@@ -165,18 +208,36 @@
             display: none;
         }
 
-        /* Add your other styles here */
+        /* Other Styles */
+        .cart-section {
+            margin-right: 20px;
+        }
     </style>
     <title>Navbar with Cart Icon</title>
 </head>
 
 <body>
-    <div class="navbar">
-        <div class="cart-section">
-            <div class="cart-icon" onclick="openCart()">🛒 <span id="cart-count">0</span></div>
-            Cart is Empty
+    <!-- Header -->
+    <header>
+        <div class="menu-icon" onclick="toggleMenu()">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
         </div>
-    </div>
+        <img src="your-logo.png" alt="Logo">
+        Your Website Name
+    </header>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Shop</a>
+        <a href="#">Contact</a>
+        <div class="cart-section">
+            <div class="cart-icon" onclick="openCart()">🛒 <span class="cart-count" id="cart-count">0</span></div>
+        </div>
+    </nav>
 
     <!-- Product Cards -->
     <div class="product-card">
@@ -184,25 +245,7 @@
         <div class="product-details">
             <h3>Card A</h3>
             <p>Price: $19.99</p>
-            <button class="buy-now-button" onclick="buyNow('Card A', 19.99)">Buy Now</button>
-        </div>
-    </div>
-
-    <div class="product-card">
-        <img src="https://placekitten.com/300/200" alt="Product Image">
-        <div class="product-details">
-            <h3>Card dfghj</h3>
-            <p>Price: $29.99</p>
-            <button class="buy-now-button" onclick="buyNow('Card gbhn', 29.99)">gane</button>
-        </div>
-    </div>
-
-    <div class="product-card">
-        <img src="https://placekitten.com/300/200" alt="Product Image">
-        <div class="product-details">
-            <h3>Card C</h3>
-            <p>Price: $24.99</p>
-            <button class="buy-now-button" onclick="buyNow('Card C', 24.99)">Buy Now</button>
+            <button class="buy-now-button" onclick="buyNow('Card A', 19.99)">🛒</button>
         </div>
     </div>
 
@@ -217,50 +260,33 @@
                 <!-- Cart items will be displayed here -->
             </div>
             <span id="cart-total-modal">Total: $0.00</span>
-            <button class="order-confirm-button" onclick="showOrderForm()">Place Order</button>
+            <button class="order-confirm-button" onclick="showContactForm()">Place Order</button>
         </div>
     </div>
 
-    <!-- Order Form -->
-    <div id="order-form" class="modal order-form">
-        <div class="modal-content order-form-content">
-            <span class="close-button" onclick="closeOrderForm()">&times;</span>
-            <h2>Order Form</h2>
+    <!-- Contact Form -->
+    <div id="contact-form" class="modal contact-form">
+        <div class="modal-content contact-form-content">
+            <span class="close-button" onclick="closeContactForm()">&times;</span>
+            <h2>Contact Form</h2>
             <form>
                 <label for="name">Name:</label>
                 <input type="text" id="name" name="name" required>
 
-                <label for="address">Address:</label>
-                <input type="text" id="address" name="address" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
 
-                <label for="phone">Phone Number:</label>
-                <input type="tel" id="phone" name="phone" required>
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
 
-                <label for="payment">Payment Method:</label>
-                <select id="payment" name="payment" onchange="toggleCardDetails()">
-                    <option value="cod">Cash on Delivery</option>
-                    <option value="card">Credit/Debit Card</option>
-                </select>
-
-                <div id="card-details" style="display: none;">
-                    <label for="cardNumber">Card Number:</label>
-                    <input type="text" id="cardNumber" name="cardNumber" placeholder="Enter card number">
-
-                    <label for="expiryDate">Expiry Date:</label>
-                    <input type="text" id="expiryDate" name="expiryDate" placeholder="MM/YY">
-
-                    <label for="cvv">CVV:</label>
-                    <input type="text" id="cvv" name="cvv" placeholder="Enter CVV">
-                </div>
-
-                <button class="order-confirm-button" type="button" onclick="confirmOrder()">Confirm Order</button>
+                <button class="order-confirm-button" type="button" onclick="confirmOrder()">Submit</button>
             </form>
         </div>
     </div>
 
     <!-- Order Confirmation Modal -->
     <div id="order-confirmation-modal" class="modal order-confirmation-modal">
-        <div class="modal-content order-form-content">
+        <div class="modal-content contact-form-content">
             <span class="close-button" onclick="closeOrderConfirmation()">&times;</span>
             <h2>Order Placed</h2>
             <p>Your order has been placed successfully!</p>
@@ -315,6 +341,10 @@
             });
 
             cartTotalElement.innerText = 'Total: $' + total.toFixed(2);
+
+            // Show/hide place order button based on cart items
+            var placeOrderButton = document.querySelector('.order-confirm-button');
+            placeOrderButton.style.display = cart.length > 0 ? 'block' : 'none';
         }
 
         function openCart() {
@@ -328,25 +358,17 @@
             cartModal.style.display = 'none';
         }
 
-        function showOrderForm() {
-            var orderForm = document.getElementById('order-form');
-            orderForm.style.display = 'flex';
-        }
-
-        function closeOrderForm() {
-            var orderForm = document.getElementById('order-form');
-            orderForm.style.display = 'none';
-        }
-
-        function toggleCardDetails() {
-            var paymentMethod = document.getElementById('payment').value;
-            var cardDetails = document.getElementById('card-details');
-
-            if (paymentMethod === 'card') {
-                cardDetails.style.display = 'block';
-            } else {
-                cardDetails.style.display = 'none';
+        function showContactForm() {
+            // Check if the cart is not empty before showing the contact form
+            if (cart.length > 0) {
+                var contactForm = document.getElementById('contact-form');
+                contactForm.style.display = 'flex';
             }
+        }
+
+        function closeContactForm() {
+            var contactForm = document.getElementById('contact-form');
+            contactForm.style.display = 'none';
         }
 
         function confirmOrder() {
@@ -367,8 +389,8 @@
             cart = [];
             updateCartCount();
 
-            var orderForm = document.getElementById('order-form');
-            orderForm.style.display = 'none';
+            var contactForm = document.getElementById('contact-form');
+            contactForm.style.display = 'none';
         }
 
         function calculateDeliveryDate() {
@@ -380,6 +402,11 @@
 
         function generateTrackingAddress() {
             return Math.floor(Math.random() * 1000000);
+        }
+
+        function toggleMenu() {
+            var nav = document.querySelector('nav');
+            nav.classList.toggle('nav-active');
         }
 
         initializePage();

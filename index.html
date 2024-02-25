@@ -101,71 +101,151 @@
         .offer-item:hover {
             color: #ffd700; /* Text color on hover */
         }
-        header {
+      /* Header Styles */
+      header {
             background-color: #333;
-            color: white;
+            color: #fff;
             padding: 10px;
+            text-align: center;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
         }
 
         header img {
-            width: 80px;
-            height: auto;
-        }
-
-        nav {
-            display: flex;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin: 0 15px;
-            transition: color 0.3s ease;
-        }
-
-        nav a:hover {
-            color: #ff9900;
+            width: 50px; /* Adjust the width of the logo */
+            height: auto; /* Maintain aspect ratio */
         }
 
         .menu-icon {
             display: none;
-            font-size: 24px;
+            flex-direction: column;
             cursor: pointer;
         }
 
-        /* Media query for mobile responsiveness */
-        @media only screen and (max-width: 768px) {
-            header {
-                flex-direction: row;
-                align-items: center;
-            }
+        .menu-icon .line {
+            width: 30px;
+            height: 3px;
+            background-color: #fff;
+            margin: 6px 0;
+        }
 
-            nav {
-                display: none;
-                flex-direction: column;
-                align-items: flex-end;
-                width: 100%;
-                background-color: #333;
-                position: absolute;
-                top: 60px;
-                right: 0;
-            }
-
-            nav a {
-                display: block;
-                padding: 10px;
-            }
-
+        @media only screen and (max-width: 600px) {
             .menu-icon {
-                display: block;
-                order: 2; /* Move the menu icon to the right side */
+                display: flex;
             }
+
+            header img {
+                display: none;
+            }
+        }
+
+        /* Navigation Styles */
+        nav {
+            background-color: #333;
+            padding: 10px;
+            display: flex;
+            justify-content: right;
+            align-items: center;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px;
+            margin-right: 10px;
+        }
+
+        .cart-icon {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            background-color: #4CAF50;
+            color: #fff;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 30px;
+            cursor: pointer;
+        }
+
+        .cart-icon:hover {
+            background-color: #45a049;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .modal-content {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            position: relative;
+            width: 80vw;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        .close-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 20px;
+            cursor: pointer;
+            color: #555;
+        }
+
+        .contact-form {
+            display: none;
+        }
+
+        .contact-form-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .contact-form label {
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .contact-form input {
+            padding: 8px;
+            margin-bottom: 15px;
+            width: 100%;
+        }
+
+        .order-confirm-button {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+
+        .order-confirm-button:hover {
+            background-color: #555;
+        }
+
+        .order-confirmation-modal {
+            display: none;
+        }
+
+        /* Other Styles */
+        .cart-section {
+            margin-right: 20px;
         }
         /* Home Section styles */
         #home {
@@ -492,8 +572,7 @@
 <body>
   <!--   <header>
         <div class="logo">s</div>
-       <!--  <img src="logo.png" alt="Logo"> 
-
+       
         <nav>
             <a href="#home">Home</a>
             <a href="#mens-wear">Men's Wear</a>
@@ -504,15 +583,25 @@
         </nav>
     </header> -->
     <header>
+        <div class="menu-icon" onclick="toggleMenu()">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
         <img src="your-logo.png" alt="Logo">
-        <nav>
-            <a href="#home">Home</a>
-            <a href="#about">About</a>
-            <a href="#shop">Shop</a>
-            <a href="#contact">Contact</a>
-        </nav>
-        <div class="menu-icon" onclick="toggleNav()">&#9776;</div>
+        Your Website Name
     </header>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Shop</a>
+        <a href="#">Contact</a>
+        <div class="cart-section">
+            <div class="cart-icon" onclick="openCart()">🛒 <span class="cart-count" id="cart-count">0</span></div>
+        </div>
+    </nav>
 <!-- Banner Section 
 
 <div id="offer-banner">
@@ -537,7 +626,7 @@
                     <h3>Men's Wear 1</h3>
                     <p>price="169$"</p>
                     <button onclick="showOrderForm('Men\'s Wear 1', 29.99)">Buy Now</button>
-                    <button><link rel="stylesheet" href="contact.html"></button>
+                    <button class="buy-now-button" onclick="buyNow('Card A', 19.99)">🛒</button>
                 </div>
             </div>
             <div class="card" onclick="viewCardDetails('Men\'s Wear 2', 'High-quality description for Men\'s Wear 2.', 'menswear2.jpg')">
@@ -865,7 +954,165 @@
             </div>
         </div>
     </div>
+<!-- Modal for Cart Details -->
+<div id="cart-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-button" onclick="closeCart()">&times;</span>
+        <h2>Shopping Cart</h2>
+        <div id="cart-details">
+            <!-- Cart items will be displayed here -->
+        </div>
+        <span id="cart-total-modal">Total: $0.00</span>
+        <button class="order-confirm-button" onclick="showContactForm()">Place Order</button>
+    </div>
+</div>
 
+<!-- Contact Form -->
+<div id="contact-form" class="modal contact-form">
+    <div class="modal-content contact-form-content">
+        <span class="close-button" onclick="closeContactForm()">&times;</span>
+        <h2>Contact Form</h2>
+        <form>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+
+            <button class="order-confirm-button" type="button" onclick="confirmOrder()">Submit</button>
+        </form>
+    </div>
+</div>
+
+<!-- Order Confirmation Modal -->
+<div id="order-confirmation-modal" class="modal order-confirmation-modal">
+    <div class="modal-content contact-form-content">
+        <span class="close-button" onclick="closeOrderConfirmation()">&times;</span>
+        <h2>Order Placed</h2>
+        <p>Your order has been placed successfully!</p>
+        <p>Estimated Delivery Date: <span id="delivery-date"></span></p>
+        <p>Tracking Address: <span id="tracking-address"></span></p>
+    </div>
+</div>
+<script>
+    // Add your JavaScript functions here
+
+    var cart = [];
+
+    function initializePage() {
+        updateCartCount();
+    }
+
+    function addToCart(productName, price, quantity) {
+        var existingProduct = cart.find(p => p.name === productName);
+
+        if (existingProduct) {
+            existingProduct.quantity += quantity;
+        } else {
+            cart.push({ name: productName, price: price, quantity: quantity });
+        }
+
+        updateCartCount();
+        displayCartDetails();
+    }
+
+    function buyNow(productName, price) {
+        addToCart(productName, price, 1);
+    }
+
+    function updateCartCount() {
+        var cartCountElement = document.getElementById('cart-count');
+        cartCountElement.innerText = cart.reduce((total, product) => total + product.quantity, 0);
+    }
+
+    function displayCartDetails() {
+        var cartDetailsElement = document.getElementById('cart-details');
+        var cartTotalElement = document.getElementById('cart-total-modal');
+        var total = 0;
+
+        cartDetailsElement.innerHTML = '';
+
+        cart.forEach(function (product) {
+            var itemDetails = document.createElement('p');
+            itemDetails.textContent = `${product.name} x ${product.quantity} - $${(product.price * product.quantity).toFixed(2)}`;
+            cartDetailsElement.appendChild(itemDetails);
+            total += product.price * product.quantity;
+        });
+
+        cartTotalElement.innerText = 'Total: $' + total.toFixed(2);
+
+        // Show/hide place order button based on cart items
+        var placeOrderButton = document.querySelector('.order-confirm-button');
+        placeOrderButton.style.display = cart.length > 0 ? 'block' : 'none';
+    }
+
+    function openCart() {
+        var cartModal = document.getElementById('cart-modal');
+        cartModal.style.display = 'flex';
+        displayCartDetails();
+    }
+
+    function closeCart() {
+        var cartModal = document.getElementById('cart-modal');
+        cartModal.style.display = 'none';
+    }
+
+    function showContactForm() {
+        // Check if the cart is not empty before showing the contact form
+        if (cart.length > 0) {
+            var contactForm = document.getElementById('contact-form');
+            contactForm.style.display = 'flex';
+        }
+    }
+
+    function closeContactForm() {
+        var contactForm = document.getElementById('contact-form');
+        contactForm.style.display = 'none';
+    }
+
+    function confirmOrder() {
+        var deliveryDate = calculateDeliveryDate();
+        var trackingAddress = generateTrackingAddress();
+
+        document.getElementById('delivery-date').innerText = deliveryDate;
+        document.getElementById('tracking-address').innerText = trackingAddress;
+
+        var orderConfirmationModal = document.getElementById('order-confirmation-modal');
+        orderConfirmationModal.style.display = 'flex';
+    }
+
+    function closeOrderConfirmation() {
+        var orderConfirmationModal = document.getElementById('order-confirmation-modal');
+        orderConfirmationModal.style.display = 'none';
+
+        cart = [];
+        updateCartCount();
+
+        var contactForm = document.getElementById('contact-form');
+        contactForm.style.display = 'none';
+    }
+
+    function calculateDeliveryDate() {
+        var currentDate = new Date();
+        var deliveryDate = new Date(currentDate.setDate(currentDate.getDate() + 3));
+        var options = { year: 'numeric', month: 'long', day: 'numeric' };
+        return deliveryDate.toLocaleDateString('en-US', options);
+    }
+
+    function generateTrackingAddress() {
+        return Math.floor(Math.random() * 1000000);
+    }
+
+    function toggleMenu() {
+        var nav = document.querySelector('nav');
+        nav.classList.toggle('nav-active');
+    }
+
+    initializePage();
+</script>
     </script>
 <!-- WhatsApp icon -->
 <div id="whatsapp-icon" onclick="redirectToWhatsApp()">

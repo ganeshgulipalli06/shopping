@@ -179,30 +179,12 @@
     </div>
 
     <!-- Product Cards -->
-    <div class="product-card">
+    <div class="product-card" onclick="addToCart('Men\'s Wear 1', 29.99)">
         <img src="https://placekitten.com/300/200" alt="Product Image">
         <div class="product-details">
-            <h3>Card A</h3>
-            <p>Price: $19.99</p>
-            <button class="buy-now-button" onclick="buyNow('Card A', 19.99)">Buy Now</button>
-        </div>
-    </div>
-
-    <div class="product-card">
-        <img src="https://placekitten.com/300/200" alt="Product Image">
-        <div class="product-details">
-            <h3>Card dfghj</h3>
+            <h3>Men's Wear 1</h3>
             <p>Price: $29.99</p>
-            <button class="buy-now-button" onclick="buyNow('Card gbhn', 29.99)">gane</button>
-        </div>
-    </div>
-
-    <div class="product-card">
-        <img src="https://placekitten.com/300/200" alt="Product Image">
-        <div class="product-details">
-            <h3>Card C</h3>
-            <p>Price: $24.99</p>
-            <button class="buy-now-button" onclick="buyNow('Card C', 24.99)">Buy Now</button>
+            <button class="buy-now-button">Buy Now</button>
         </div>
     </div>
 
@@ -216,7 +198,7 @@
             <div id="cart-details">
                 <!-- Cart items will be displayed here -->
             </div>
-            <span id="cart-total-modal">Total: $0.00</span>
+            <p>Total: $<span id="cart-total">0.00</span></p>
             <button class="order-confirm-button" onclick="showOrderForm()">Place Order</button>
         </div>
     </div>
@@ -274,68 +256,71 @@
 
         var cart = [];
 
-        function initializePage() {
-            updateCartCount();
-        }
-
-        function addToCart(productName, price, quantity) {
-            var existingProduct = cart.find(p => p.name === productName);
+        function addToCart(productName, price) {
+            // Check if the product is already in the cart
+            var existingProduct = cart.find(product => product.name === productName);
 
             if (existingProduct) {
-                existingProduct.quantity += quantity;
+                // If the product is already in the cart, increase its quantity
+                existingProduct.quantity += 1;
             } else {
-                cart.push({ name: productName, price: price, quantity: quantity });
+                // If the product is not in the cart, add it with quantity 1
+                cart.push({ name: productName, price: price, quantity: 1 });
             }
 
+            // Update cart count and display
             updateCartCount();
-            displayCartDetails();
-        }
-
-        function buyNow(productName, price) {
-            addToCart(productName, price, 1);
         }
 
         function updateCartCount() {
             var cartCountElement = document.getElementById('cart-count');
-            cartCountElement.innerText = cart.reduce((total, product) => total + product.quantity, 0);
+            cartCountElement.innerText = calculateTotalItems();
+            updateCartDetails();
         }
 
-        function displayCartDetails() {
+        function calculateTotalItems() {
+            // Calculate the total quantity of items in the cart
+            return cart.reduce((total, product) => total + product.quantity, 0);
+        }
+
+        function updateCartDetails() {
+            // Display cart details
             var cartDetailsElement = document.getElementById('cart-details');
-            var cartTotalElement = document.getElementById('cart-total-modal');
-            var total = 0;
+            var cartTotalElement = document.getElementById('cart-total');
 
             cartDetailsElement.innerHTML = '';
+            cartTotalElement.innerText = calculateCartTotal().toFixed(2);
 
             cart.forEach(function (product) {
                 var itemDetails = document.createElement('p');
-                itemDetails.textContent = `${product.name} x ${product.quantity} - $${(product.price * product.quantity).toFixed(2)}`;
+                itemDetails.textContent = 'Item: ' + product.name + ' - $' + product.price.toFixed(2) + ' x ' + product.quantity;
                 cartDetailsElement.appendChild(itemDetails);
-                total += product.price * product.quantity;
             });
+        }
 
-            cartTotalElement.innerText = 'Total: $' + total.toFixed(2);
+        function calculateCartTotal() {
+            // Calculate the total price of items in the cart
+            return cart.reduce((total, product) => total + (product.price * product.quantity), 0);
         }
 
         function openCart() {
             var cartModal = document.getElementById('cart-modal');
-            cartModal.style.display = 'flex';
-            displayCartDetails();
+            cartModal.style.display = 'flex'; // Display the modal
         }
 
         function closeCart() {
             var cartModal = document.getElementById('cart-modal');
-            cartModal.style.display = 'none';
+            cartModal.style.display = 'none'; // Hide the modal
         }
 
         function showOrderForm() {
             var orderForm = document.getElementById('order-form');
-            orderForm.style.display = 'flex';
+            orderForm.style.display = 'flex'; // Display the order form
         }
 
         function closeOrderForm() {
             var orderForm = document.getElementById('order-form');
-            orderForm.style.display = 'none';
+            orderForm.style.display = 'none'; // Hide the order form
         }
 
         function toggleCardDetails() {
@@ -353,36 +338,43 @@
             var deliveryDate = calculateDeliveryDate();
             var trackingAddress = generateTrackingAddress();
 
+            // Display order confirmation details
             document.getElementById('delivery-date').innerText = deliveryDate;
             document.getElementById('tracking-address').innerText = trackingAddress;
 
+            // Display order confirmation modal
             var orderConfirmationModal = document.getElementById('order-confirmation-modal');
             orderConfirmationModal.style.display = 'flex';
+
+            // Close the order form
+            closeOrderForm();
         }
 
         function closeOrderConfirmation() {
             var orderConfirmationModal = document.getElementById('order-confirmation-modal');
-            orderConfirmationModal.style.display = 'none';
+            orderConfirmationModal.style.display = 'none'; // Hide the order confirmation modal
 
+            // Clear cart and update UI as needed
             cart = [];
             updateCartCount();
-
-            var orderForm = document.getElementById('order-form');
-            orderForm.style.display = 'none';
         }
 
         function calculateDeliveryDate() {
+            // In a real-world scenario, calculate the delivery date based on business logic
+            // For this example, let's assume delivery will take 3 days from the current date
             var currentDate = new Date();
             var deliveryDate = new Date(currentDate.setDate(currentDate.getDate() + 3));
+
+            // Format the date to display
             var options = { year: 'numeric', month: 'long', day: 'numeric' };
             return deliveryDate.toLocaleDateString('en-US', options);
         }
 
         function generateTrackingAddress() {
+            // In a real-world scenario, generate a unique tracking address for the order
+            // For this example, let's use a simple random number as the tracking address
             return Math.floor(Math.random() * 1000000);
         }
-
-        initializePage();
     </script>
 </body>
 

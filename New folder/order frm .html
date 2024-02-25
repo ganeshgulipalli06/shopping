@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -24,8 +24,8 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             margin: 10px;
             overflow: hidden;
-            width: 200px;
-            height: 400px;
+            width: 200px; /* Adjust the width as needed */
+            height: 400px; /* Adjust the height as needed */
             cursor: pointer;
             transition: transform 0.3s ease;
             display: flex;
@@ -49,15 +49,13 @@
         }
 
         .card button {
-    background-color: #333;
-    color: #000; /* Change to black */
-    font-weight: bold; /* Add bold style */
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
 
         .card button:hover {
             background-color: #555;
@@ -78,16 +76,12 @@
 
         .order-form-content {
             background-color: #fff;
-            padding: 30px;
+            padding: 20px;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
             position: relative;
-            width: 90vw;
-            max-width: 800px; /* Adjust the max-width as needed */
-            text-align: center;
-            box-sizing: border-box;
-            display: flex;
-            flex-direction: row;
+            width: 100vw;
+            max-width: 400px; /* Set a maximum width */
         }
 
         .close-button {
@@ -96,55 +90,6 @@
             right: 10px;
             font-size: 20px;
             cursor: pointer;
-            color: #555;
-        }
-
-        .order-form h2 {
-            color: #333;
-        }
-
-        .order-form label {
-            display: block;
-            margin-top: 15px;
-            font-weight: bold;
-            color: #555;
-            text-align: left;
-        }
-
-        .order-form input,
-        .order-form select {
-            width: calc(100% - 20px);
-            padding: 10px;
-            margin-top: 5px;
-            margin-bottom: 15px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            box-sizing: border-box;
-        }
-
-        .order-form select {
-            appearance: none;
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            background: url('https://img.icons8.com/material/24/000000/down2.png') no-repeat;
-            background-position: calc(100% - 10px) center;
-            background-size: 20px;
-        }
-
-       
-
-        .order-form button {
-            background-color: #333;
-            color: #fff;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        .order-form button:hover {
-            background-color: #555;
         }
     </style>
     <title>Responsive Card Section</title>
@@ -166,41 +111,38 @@
     <div id="order-form" class="order-form">
         <div class="order-form-content">
             <span class="close-button" onclick="closeOrderForm()">&times;</span>
-            <div style="flex: 1;">
-                <h2>Order Form</h2>
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required>
+            <h2>Order Form</h2>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
 
-                <label for="address">Address:</label>
-                <input type="text" id="address" name="address" required>
+            <label for="address">Address:</label>
+            <input type="text" id="address" name="address" required>
 
-                <label for="pincode">Pincode:</label>
-                <input type="text" id="pincode" name="pincode" required>
+            <label for="pincode">Pin Code:</label>
+            <input type="text" id="pincode" name="pincode" required>
 
-                <label for="phone">Phone:</label>
-                <input type="text" id="phone" name="phone" required>
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="phone" required>
+
+            <label for="payment">Payment Option:</label>
+            <select id="payment" name="payment" required>
+                <option value="credit">Credit Card</option>
+                <option value="debit">Debit Card</option>
+                <option value="cod">Cash on Delivery</option>
+            </select>
+
+            <div id="card-details" class="card-details">
+                <label for="card-number">Card Number:</label>
+                <input type="text" id="card-number" name="card-number">
+
+                <label for="expiry-date">Expiry Date:</label>
+                <input type="text" id="expiry-date" name="expiry-date">
+
+                <label for="cvv">CVV:</label>
+                <input type="text" id="cvv" name="cvv">
             </div>
-            <div style="flex: 1;">
-                <label for="payment">Payment Method:</label>
-                <select id="payment" name="payment" onchange="toggleCardDetails()">
-                    <option value="credit">Credit Card</option>
-                    <option value="debit">Debit Card</option>
-                    <option value="cod">Cash on Delivery</option>
-                </select>
 
-                <div id="card-details" class="card-details">
-                    <label for="card-number">Card Number:</label>
-                    <input type="text" id="card-number" name="card-number">
-
-                    <label for="expiry-date">Expiry Date:</label>
-                    <input type="text" id="expiry-date" name="expiry-date">
-
-                    <label for="cvv">CVV:</label>
-                    <input type="text" id="cvv" name="cvv">
-                </div>
-
-                <button onclick="confirmOrder()">Confirm Order</button>
-            </div>
+            <button onclick="confirmOrder()">Confirm Order</button>
         </div>
     </div>
 
@@ -223,21 +165,16 @@
             document.getElementById('cvv').value = '';
 
             // Show/hide card details based on the selected payment option
-            toggleCardDetails();
+            document.getElementById('payment').addEventListener('change', function () {
+                if (this.value === 'credit' || this.value === 'debit') {
+                    cardDetails.style.display = 'block';
+                } else {
+                    cardDetails.style.display = 'none';
+                }
+            });
 
             // Show the order form
             orderForm.style.display = 'flex';
-        }
-
-        function toggleCardDetails() {
-            var paymentOption = document.getElementById('payment').value;
-            var cardDetails = document.getElementById('card-details');
-
-            if (paymentOption === 'credit' || paymentOption === 'debit') {
-                cardDetails.style.display = 'block';
-            } else {
-                cardDetails.style.display = 'none';
-            }
         }
 
         function closeOrderForm() {

@@ -316,12 +316,33 @@
     position: relative; /* Set position to relative for absolute positioning of the tags */
 }
 
+/* Media query for mobile responsiveness 
+@media only screen and (max-width: 768px) {
+    .card {
+        width: calc(100% - 10px); /* 2 cards per row with margin, increased width 
+    }
+}*/
+.card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 10px; /* Add margin if needed */
+    overflow: hidden;
+    width: calc(50% - 20px); /* Set each card to occupy 50% of the screen width minus the total margin */
+    height: 400px; /* Adjust the height as needed */
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
 /* Media query for mobile responsiveness */
 @media only screen and (max-width: 768px) {
     .card {
-        width: calc(100% - 10px); /* 2 cards per row with margin, increased width */
+        width: calc(50% - 10px); /* 2 cards per row with margin, each occupying 50% of the screen width */
     }
 }
+
 
 .sale-tag,
 .offer-tag {

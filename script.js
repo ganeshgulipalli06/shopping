@@ -1,4 +1,5 @@
-= // Add your JavaScript functions here
+
+// Add your JavaScript functions here
 
 var cart = [];
 
@@ -60,17 +61,28 @@ function closeCart() {
     cartModal.style.display = 'none';
 }
 
-function showContactForm() {
-    // Check if the cart is not empty before showing the contact form
+function showShoppingForm() {
+    // Check if the cart is not empty before showing the shopping form
     if (cart.length > 0) {
-        var contactForm = document.getElementById('contact-form');
-        contactForm.style.display = 'flex';
+        var shoppingForm = document.getElementById('shopping-form');
+        shoppingForm.style.display = 'flex';
     }
 }
 
-function closeContactForm() {
-    var contactForm = document.getElementById('contact-form');
-    contactForm.style.display = 'none';
+function closeShoppingForm() {
+    var shoppingForm = document.getElementById('shopping-form');
+    shoppingForm.style.display = 'none';
+}
+
+function toggleCardDetails() {
+    var paymentMethod = document.getElementById('payment').value;
+    var cardDetails = document.getElementById('card-details');
+
+    if (paymentMethod === 'card') {
+        cardDetails.style.display = 'block';
+    } else {
+        cardDetails.style.display = 'none';
+    }
 }
 
 function confirmOrder() {
@@ -80,19 +92,23 @@ function confirmOrder() {
     document.getElementById('delivery-date').innerText = deliveryDate;
     document.getElementById('tracking-address').innerText = trackingAddress;
 
+    var shoppingForm = document.getElementById('shopping-form');
+    shoppingForm.style.display = 'none';
+
+    var cartModal = document.getElementById('cart-modal');
+    cartModal.style.display = 'none';
+
     var orderConfirmationModal = document.getElementById('order-confirmation-modal');
     orderConfirmationModal.style.display = 'flex';
+
+    // Clear the cart after confirming the order
+    cart = [];
+    updateCartCount();
 }
 
 function closeOrderConfirmation() {
     var orderConfirmationModal = document.getElementById('order-confirmation-modal');
     orderConfirmationModal.style.display = 'none';
-
-    cart = [];
-    updateCartCount();
-
-    var contactForm = document.getElementById('contact-form');
-    contactForm.style.display = 'none';
 }
 
 function calculateDeliveryDate() {
@@ -104,11 +120,6 @@ function calculateDeliveryDate() {
 
 function generateTrackingAddress() {
     return Math.floor(Math.random() * 1000000);
-}
-
-function toggleMenu() {
-    var nav = document.querySelector('nav');
-    nav.classList.toggle('nav-active');
 }
 
 initializePage();

@@ -319,7 +319,7 @@
 /* Media query for mobile responsiveness */
 @media only screen and (max-width: 768px) {
     .card {
-        width: calc(50% - 10px); /* 2 cards per row with margin, increased width */
+        width: calc(50% - 20px); /* 2 cards per row with margin, increased width */
     }
 }
 
@@ -1023,11 +1023,41 @@
     <img src="./imgs/whats app icon.png" alt="WhatsApp Icon">
   </div>
 
-  
+  <section id="about">
+    <h2>About Us</h2>
+    <p>Learn more about our company and mission.</p>
+</section>
   
     <section id="contact">
         <h2>Contact Us</h2>
         <p>Have any questions? Feel free to contact us!</p>
+        <footer class="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="icon" data-name="Instagram">
+                            <img src="instagram_logo.png" alt="Instagram">
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="icon" data-name="Gmail">
+                            <img src="gmail_logo.png" alt="Gmail">
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="icon" data-name="Phone Number">
+                            <img src="phone_logo.png" alt="Phone Number">
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="icon" data-name="GitHub">
+                            <img src="github_logo.png" alt="GitHub">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        
     </section>
 
     <footer>
@@ -1053,14 +1083,14 @@
     //const animation = offerContainer.animate(
        
       //  function viewCardDetails(name, description, image) {
-            alert(`Card: ${name}\nDescription: ${description}`);
+            alert(Card: ${name}\nDescription: ${description});
             // You can add more functionality, such as displaying a modal with detailed card information.
        // }
         function redirectToWhatsApp() {
     // Replace '1234567890' with your actual WhatsApp number, including the country code.
     // For example, 'https://wa.me/15551234567'
     const whatsappNumber = '7981488386';
-    const whatsappUrl = `https://wa.me/${whatsappNumber}`;
+    const whatsappUrl = https://wa.me/${whatsappNumber};
 
     // Open WhatsApp in a new tab/window
     window.open(whatsappUrl, '_blank');
@@ -1157,7 +1187,7 @@ function displayCartDetails() {
 
     cart.forEach(function (product) {
         var itemDetails = document.createElement('p');
-        itemDetails.textContent = `${product.name} x ${product.quantity} - $${(product.price * product.quantity).toFixed(2)}`;
+        itemDetails.textContent = ${product.name} x ${product.quantity} - $${(product.price * product.quantity).toFixed(2)};
         cartDetailsElement.appendChild(itemDetails);
         total += product.price * product.quantity;
     });

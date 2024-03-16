@@ -1,134 +1,3 @@
- /* Add your CSS styles here */
-
- body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    background-color: #f4f4f4;
-}
-
-/* Header Styles */
-header {
-    background-color: #333;
-    color: #fff;
-    padding: 10px;
-    text-align: center;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-header img {
-    width: 50px; /* Adjust the width of the logo */
-    height: auto; /* Maintain aspect ratio */
-}
-
-.menu-icon {
-    display: none;
-    flex-direction: column;
-    cursor: pointer;
-}
-
-.menu-icon .line {
-    width: 30px;
-    height: 3px;
-    background-color: #fff;
-    margin: 6px 0;
-}
-
-@media only screen and (max-width: 600px) {
-    .menu-icon {
-        display: flex;
-    }
-
-    header img {
-        display: none;
-    }
-}
-
-/* Navigation Styles */
-nav {
-    background-color: #333;
-    padding: 10px;
-    display: flex;
-    justify-content: right;
-    align-items: center;
-}
-
-nav a {
-    color: #fff;
-    text-decoration: none;
-    padding: 10px;
-    margin-right: 10px;
-}
-
-.cart-icon {
-    display: inline-block;
-    width: 30px;
-    height: 30px;
-    background-color: #4CAF50;
-    color: #fff;
-    border-radius: 50%;
-    text-align: center;
-    line-height: 30px;
-    cursor: pointer;
-}
-
-.cart-icon:hover {
-    background-color: #45a049;
-}
-
-/* Product Card Styles */
-.product-card {
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin: 20px;
-    overflow: hidden;
-    width: 300px;
-    cursor: pointer;
-    transition: transform 0.3s ease;
-}
-
-.product-card:hover {
-    transform: scale(1.05);
-}
-
-.product-card img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-bottom: 2px solid #ddd;
-}
-
-.product-details {
-    padding: 20px;
-    text-align: center;
-}
-
-.product-details h3 {
-    margin: 0;
-}
-
-.product-details p {
-    margin: 10px 0;
-}
-
-.buy-now-button {
-    background-color: #333;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.buy-now-button:hover {
-    background-color: #555;
-}
-
-/* Add your modal styles here */
 .modal {
     display: none;
     position: fixed;
@@ -162,22 +31,22 @@ nav a {
     color: #555;
 }
 
-.contact-form {
+.shopping-form {
     display: none;
 }
 
-.contact-form-content {
+.shopping-form-content {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.contact-form label {
+.shopping-form label {
     margin-bottom: 10px;
     font-weight: bold;
 }
 
-.contact-form input {
+.shopping-form input {
     padding: 8px;
     margin-bottom: 15px;
     width: 100%;
@@ -201,7 +70,4 @@ nav a {
     display: none;
 }
 
-/* Other Styles */
-.cart-section {
-    margin-right: 20px;
-}
+/* Add your oth

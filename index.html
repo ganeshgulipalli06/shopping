@@ -566,6 +566,64 @@
         .order-form button:hover {
             background-color: #555;
         }
+       /* Original carousel styles */
+.carousel-container {
+    position: relative;
+    width: 100%;
+    height: 600px;
+    overflow: hidden;
+}
+
+.carousel {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.5s ease;
+}
+
+.slide {
+    flex: 0 0 100%; /* Each slide takes the full width */
+    height: 100%; /* Ensure slides fill the container vertically */
+    overflow: hidden;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Preserve aspect ratio and fill the slide */
+}
+
+button.prev, button.next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 100;
+}
+
+button.prev {
+    left: 0;
+}
+
+button.next {
+    right: 0;
+}
+
+/* Media query for smaller screens */
+@media only screen and (max-width: 768px) {
+    .carousel-container {
+        height: 300px; /* Decrease height for smaller screens */
+    }
+
+    .slide img {
+        height: 100%; /* Maintain full height for images */
+    }
+}
+
     </style>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="script.js">
@@ -617,7 +675,39 @@
         <!-- Add more offer items as needed with different colors
     </div>
 </div> -->
-<img src="./imgs/shopping banner home.jpg" width="100%" height="600px">
+<div class="carousel-container">
+    <div class="carousel">
+        <div class="slide">
+            <!-- Banner 1 content -->
+            <img src="./imgs/shopping banner home.jpg" alt="Banner 1" width="100%" height="600px">
+        </div>
+        <div class="slide">
+            <!-- Banner 2 content -->
+            <img src="./imgs/woman-shopping-for-clothes.jpg" alt="Banner 2" width="100%" height="600px">
+        </div>
+        <div class="slide">
+            <!-- Banner 1 content -->
+            <img src="./imgs/mens shoping.jpg" alt="Banner 1" width="100%" height="600px">
+        </div>
+        <div class="slide">
+            <!-- Banner 2 content -->
+            <img src="./imgs/mens 2.jpg" alt="Banner 2" width="100%" height="600px">
+        </div>
+        <div class="slide">
+            <!-- Banner 1 content -->
+            <img src="./imgs/kids home banner.jpg" alt="Banner 1" width="100%" height="600px">
+        </div>
+        <div class="slide">
+            <!-- Banner 2 content -->
+            <img src="./imgs/kids home banner.2jpg.jpg" alt="Banner 2" width="100%" height="600px">
+        </div>
+        <!-- Add more slides for banners 3 to 10 -->
+        <!-- <div class="slide">...</div> -->
+    </div>
+    <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+    <button class="next" onclick="moveSlide(1)">&#10095;</button>
+</div>
+
 
     <section id="home">
         <h2 style="background-color:black; color: white;">Men's Wear</h2>
@@ -1246,6 +1336,26 @@ function generateTrackingAddress() {
 }
 
 initializePage();
+
+let currentIndex = 0;
+const slides = document.querySelectorAll('.slide');
+const totalSlides = slides.length;
+
+function moveSlide(direction) {
+    currentIndex += direction;
+    if (currentIndex < 0) {
+        currentIndex = totalSlides - 1;
+    } else if (currentIndex >= totalSlides) {
+        currentIndex = 0;
+    }
+    const displacement = -currentIndex * 100;
+    document.querySelector('.carousel').style.transform = `translateX(${displacement}%)`;
+}
+
+// Automatically move to the next slide every 3 seconds
+setInterval(() => {
+    moveSlide(1);
+}, 3000);
 
     </script>
 </body>

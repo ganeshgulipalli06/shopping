@@ -4,12 +4,141 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
+      Header Styles */
+      /* Home Section */
+
+        /* Add your global styles here */
+
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
             background-color: #f4f4f4;
+            color: #333;
+            scroll-behavior: smooth; /* Enable smooth scrolling */
         }
+           /* Logo styles */
+           .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            font-family: 'Arial', sans-serif;
+            font-weight: bold;
+            color: #333;
+            background: linear-gradient(to right, #3498db, #2ecc71);
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Circle in the middle (represents a shopping bag) */
+        .logo::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 60px;
+            background-color: #fff;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        /* Handles on the sides of the shopping bag */
+        .logo::before {
+            content: '';
+            display: block;
+            width: 20px;
+            height: 80px;
+            background-color: #fff;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1;
+        }
+
+        .logo::before:first-child {
+            left: 10%;
+        }
+
+        .logo::before:last-child {
+            right: 10%;
+        }
+      header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header img {
+            width: 50px; /* Adjust the width of the logo */
+            height: auto; /* Maintain aspect ratio */
+        }
+
+        .menu-icon {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .menu-icon .line {
+            width: 30px;
+            height: 3px;
+            background-color: #fff;
+            margin: 6px 0;
+        }
+
+        @media only screen and (max-width: 600px) {
+            .menu-icon {
+                display: flex;
+            }
+
+            header img {
+                display: none;
+            }
+        }
+
+        /* Navigation Styles */
+        nav {
+            background-color: #333;
+            padding: 10px;
+            display: flex;
+            justify-content: right;
+            align-items: center;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px;
+            margin-right: 10px;
+        }
+
+        .cart-icon {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            background-color: #4CAF50;
+            color: #fff;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 30px;
+            cursor: pointer;
+        }
+
+        .cart-icon:hover {
+            background-color: #45a049;
+        }
+
 
         .contact-banner {
             background-color: #007BFF; /* Blue color */
@@ -46,7 +175,25 @@
     <title>Contact Us Banner</title>
 </head>
 <body>
+    <header>
+        <div class="menu-icon" onclick="toggleMenu()">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+        <img src="your-logo.png" alt="Logo">
+        Your Website Name
+    </header>
 
+    <!-- Navigation Bar -->
+    <nav>
+        <a href="#">Home</a>
+        <a href="./shop.html">Shop</a>
+        <a href="#">Contact</a>
+        <div class="cart-section">
+            <div class="cart-icon" onclick="openCart()">🛒 <span class="cart-count" id="cart-count">0</span></div>
+        </div>
+    </nav>
     <div class="contact-banner">
         <h1>Contact Us for Stylish Clothing</h1>
         <p>Exclusive offers available for a limited time!</p>

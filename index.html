@@ -110,6 +110,9 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            position: sticky;
+              top: 0;
+            z-index: 1000; /* Ensure it stays on top of other content */
         }
 
         header img {
@@ -147,6 +150,9 @@
             display: flex;
             justify-content: right;
             align-items: center;
+            position: sticky;
+             top: 0;
+             z-index: 1000; /* Ensure it stays on top of other content */
         }
 
         nav a {
@@ -656,8 +662,7 @@ button.next {
     <!-- Navigation Bar -->
     <nav>
         <a href="#">Home</a>
-        <a href="#">About</a>
-        <a href="#">Shop</a>
+        <a href="./shop.html">Shop</a>
         <a href="#">Contact</a>
         <div class="cart-section">
             <div class="cart-icon" onclick="openCart()">🛒 <span class="cart-count" id="cart-count">0</span></div>
@@ -677,29 +682,35 @@ button.next {
 </div> -->
 <div class="carousel-container">
     <div class="carousel">
-        <div class="slide">
+        <div class="slide" style="position: relative;">
             <!-- Banner 1 content -->
             <img src="./imgs/shopping banner home.jpg" alt="Banner 1" width="100%" height="600px">
+            <button class="shop-now-button" style="position: absolute; bottom: 20px; right: 20px; background-color: #007bff; color: #fff; padding: 15px 30px; border: none; border-radius: 5px; cursor: pointer; font-size: 18px;">Shop Now <span style="margin-left: 5px;">&#10132;</span></button>
         </div>
-        <div class="slide">
+        <div class="slide" style="position: relative;">
             <!-- Banner 2 content -->
-            <img src="./imgs/woman-shopping-for-clothes.jpg" alt="Banner 2" width="100%" height="600px">
+            <img src="./imgs/woman-shopping-for-clothes.jpg" alt="Banner 2" width="100%" height="500px">
+             <button class="shop-now-button" style="position: absolute; bottom: 20px; right: 20px; background-color: #007bff; color: #fff; padding: 15px 30px; border: none; border-radius: 5px; cursor: pointer; font-size: 18px;">Shop Now <span style="margin-left: 5px;">&#10132;</span></button>
         </div>
-        <div class="slide">
+        <div class="slide" style="position: relative;">
             <!-- Banner 1 content -->
-            <img src="./imgs/mens shoping.jpg" alt="Banner 1" width="100%" height="600px">
+            <img src="./imgs/woman-casual-white-sweater-sunglasses-red-wall.jpg" alt="Banner 1" width="100%" height="600px">
+            <button class="shop-now-button" style="position: absolute; bottom: 20px; right: 20px; background-color: #007bff; color: #fff; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">Shop Now <span style="margin-left: 5px;">&#10132;</span></button>
         </div>
-        <div class="slide">
+        <div class="slide" style="position: relative;">
             <!-- Banner 2 content -->
-            <img src="./imgs/mens 2.jpg" alt="Banner 2" width="100%" height="600px">
+            <img src="./imgs/happy-young-man-going-shopping-holding-bags-looking-excited-standing-orange-sweater-standing-against-turquoise-wall.jpg" alt="Banner 2" width="100%" height="600px">
+            <button class="shop-now-button" style="position: absolute; bottom: 20px; right: 20px; background-color: #007bff; color: #fff; padding: 15px 30px; border: none; border-radius: 5px; cursor: pointer; font-size: 18px;">Shop Now <span style="margin-left: 5px;">&#10132;</span></button>
         </div>
-        <div class="slide">
+        <div class="slide" style="position: relative;">
             <!-- Banner 1 content -->
-            <img src="./imgs/kids home banner.jpg" alt="Banner 1" width="100%" height="600px">
+            <img src="./imgs/front-view-little-cute-boy-blue-t-shirt-jeans-posing.jpg" alt="Banner 1" width="100%" height="600px">
+            <button class="shop-now-button" style="position: absolute; bottom: 20px; right: 20px; background-color: #007bff; color: #fff; padding: 15px 30px; border: none; border-radius: 5px; cursor: pointer; font-size: 18px;">Shop Now <span style="margin-left: 5px;">&#10132;</span></button>
         </div>
-        <div class="slide">
+        <div class="slide" style="position: relative;">
             <!-- Banner 2 content -->
-            <img src="./imgs/kids home banner.2jpg.jpg" alt="Banner 2" width="100%" height="600px">
+            <img src="./imgs/happy-kid-is-shopping-outdoors.jpg" alt="Banner 2" width="100%" height="600px">
+            <button class="shop-now-button" style="position: absolute; bottom: 20px; right: 20px; background-color: #007bff; color: #fff; padding: 15px 30px; border: none; border-radius: 5px; cursor: pointer; font-size: 18px;">Shop Now <span style="margin-left: 5px;">&#10132;</span></button>
         </div>
         <!-- Add more slides for banners 3 to 10 -->
         <!-- <div class="slide">...</div> -->
@@ -1355,7 +1366,7 @@ function moveSlide(direction) {
 // Automatically move to the next slide every 3 seconds
 setInterval(() => {
     moveSlide(1);
-}, 3000);
+}, 5000);
 
     </script>
 </body>

@@ -3,130 +3,73 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Responsive Cards</title>
-<link rel="stylesheet" href="styles.css">
-</head>
+<title>Fake Store</title>
 <style>
-    /* Default styles */
-.card-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-.card {
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin: 10px;
-    width: calc(50% - 20px); /* Two cards per row with margin, reduced width */
-    height: 400px; /* Initial height */
-    cursor: pointer;
-    transition: transform 0.3s ease;
-    display: flex;
-    flex-direction: column;
-}
-
-.card img {
-    width: 100%;
-    height: 200px; /* Initial height */
-    object-fit: cover;
-    border-bottom: 2px solid #ddd;
-}
-
-.card-details {
-    padding: 20px;
-    text-align: center;
-}
-
-.card button {
-    background-color: #333;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.card button:hover {
-    background-color: #555;
-}
-
-.card h3 {
-    margin: 20px 0;
-}
-
-.card p {
-    padding: 0 20px;
-    margin-bottom: 20px;
-}
-
-/* Media queries for responsiveness */
-@media only screen and (min-width: 768px) {
-    .card {
-        width: calc(33.33% - 20px); /* Three cards per row with margin */
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
     }
-}
 
-@media only screen and (min-width: 1024px) {
-    .card {
-        width: calc(25% - 20px); /* Four cards per row with margin */
-        height: 300px; /* Adjusted height for larger screens */
+    .container {
+        max-width: 100%;
+        margin: 0;
+        padding: 20px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
     }
-}
 
-@media only screen and (min-width: 1200px) {
-    .card {
-        width: calc(20% - 20px); /* Five cards per row with margin */
-        height: 300px; /* Adjusted height for larger screens */
+    .product-item {
+        width: calc(20% - 20px); /* Adjust width for five items per row */
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 10px;
+        margin-bottom: 20px;
+        background-color: #fff;
+        box-sizing: border-box;
     }
-}
 
+    .product-item img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+    }
 </style>
+</head>
 <body>
-
-<div class="card-container">
-    <div class="card">
-        <img src="image1.jpg" alt="Image 1">
-        <div class="card-details">
-            <h2>Card Title 1</h3>
-            <p>Card Description 1</p>
-            <button>Button</button>
-        </div>
-    </div>
-    <div class="card">
-        <img src="image2.jpg" alt="Image 2">
-        <div class="card-details">
-            <h2>Card Title 2</h3>
-            <p>Card Description 2</p>
-            <button>Button</button>
-        </div>
-    </div>
-    <div class="card">
-        <img src="image3.jpg" alt="Image 3">
-        <div class="card-details">
-            <h2>Card Title 3</h3>
-            <p>Card Description 3</p>
-            <button>Button</button>
-        </div>
-    </div>
-    <div class="card">
-        <img src="image4.jpg" alt="Image 4">
-        <div class="card-details">
-            <h2>Card Title 4</h3>
-            <p>Card Description 4</p>
-            <button>Button</button>
-        </div>
-    </div>
-    <div class="card">
-        <img src="image5.jpg" alt="Image 5">
-        <div class="card-details">
-            <h2>Card Title 5</h3>
-            <p>Card Description 5</p>
-            <button>Button</button>
-        </div>
-    </div>
+<div class="container" id="product-container">
+    <!-- Product items will be dynamically inserted here -->
 </div>
 
+<script>
+    // Fetch fake store data from API
+    fetch('https://fakestoreapi.com/products')
+    .then(response => response.json())
+    .then(data => {
+        // Get the container to append products
+        const container = document.getElementById('product-container');
+
+        // Loop through the products and create product items
+        data.forEach(product => {
+            const productItem = document.createElement('div');
+            productItem.classList.add('product-item');
+
+            // Create image element
+            const image = document.createElement('img');
+            image.src = product.image;
+            image.alt = product.title;
+
+            // Append image to product item
+            productItem.appendChild(image);
+
+            // Append product item to container
+            container.appendChild(productItem);
+        });
+    })
+    .catch(error => console.error('Error fetching data:', error));
+</script>
 </body>
 </html>

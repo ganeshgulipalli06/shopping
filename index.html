@@ -633,6 +633,36 @@ button.next {
         height: 100%; /* Maintain full height for images */
     }
 }
+        #offer-banner {
+            background-color: #ff4500; /* Background color for the banner */
+            padding: 10px;
+            text-align: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        #offer-container {
+            overflow: hidden;
+            white-space: nowrap;
+            padding: 10px 20px;
+    
+        }
+
+        .offer-item {
+            display: inline-block;
+            margin-right: 20px;
+            font-size: 18px;
+            color: #fff; /* Text color for offer names */
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .offer-item:hover {
+            color: #ffd700; /* Text color on hover */
+        }
 
     </style>
     <link rel="stylesheet" href="style.css">
@@ -640,6 +670,15 @@ button.next {
 </head>
 
 <body>
+    <div id="offer-banner">
+        <div id="offer-container">
+            <div class="offer-item" style="color: #FFFFFF;">50% Off on Winter Collection</div>
+            <div class="offer-item" style="color: #FF0000;">New Arrivals - Shop Now!</div>
+            <div class="offer-item" style="color: #00FF00;">Free Shipping on Orders over $50</div>
+            <div class="offer-item" style="color: #0000FF;">Limited-Time Flash Sale</div>
+            <div class="offer-item" style="color: #FFFFFF;">We are providing international shipping within 48 hours</div>
+        </div>
+    </div>
   <!--   <header>
         <div class="logo">s</div>
        <!--  <img src="logo.png" alt="Logo"> 
@@ -672,19 +711,13 @@ button.next {
         <div class="cart-section">
             <div class="cart-icon" onclick="openCart()">🛒 <span class="cart-count" id="cart-count">0</span></div>
         </div>
+        
     </nav>
-<!-- Banner Section 
+<!-- Banner Section -->
 
-<div id="offer-banner">
-    <div id="offer-container">
-        <div class="offer-item" style="color: #FFFFFF;">50% Off on Winter Collection</div>
-        <div class="offer-item" style="color:  #FF0000;">New Arrivals - Shop Now!</div>
-        <div class="offer-item" style="color: #00FF00;">Free Shipping on Orders over $50</div>
-        <div class="offer-item" style="color: #0000FF;">Limited-Time Flash Sale</div>
-        <div class="offer-item" style="color: #FFFFFF;">We are providing international shipping with in 48 hours</div>
-        <!-- Add more offer items as needed with different colors
-    </div>
-</div> -->
+
+
+</div> 
 <div class="carousel-container">
     <div class="carousel">
         <div class="slide" style="position: relative;">
@@ -1057,6 +1090,7 @@ button.next {
            < !-- Add more cards as needed -->
         </div>
     </section>
+    
       <div id="order-form" class="order-form">
         <div class="order-form-content">
             <span class="close-button" onclick="closeOrderForm()">&times;</span>

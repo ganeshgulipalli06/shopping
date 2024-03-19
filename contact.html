@@ -18,72 +18,10 @@
             color: #333;
             scroll-behavior: smooth; /* Enable smooth scrolling */
         }
-           /* Logo styles */
-           .logo {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 48px;
-            font-family: 'Arial', sans-serif;
-            font-weight: bold;
-            color: #333;
-            background: linear-gradient(to right, #3498db, #2ecc71);
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            position: relative;
-            overflow: hidden;
-        }
-
-        /* Circle in the middle (represents a shopping bag) */
-        .logo::after {
-            content: '';
-            display: block;
-            width: 60px;
-            height: 60px;
-            background-color: #fff;
-            border-radius: 50%;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
-
-        /* Handles on the sides of the shopping bag */
-        .logo::before {
-            content: '';
-            display: block;
-            width: 20px;
-            height: 80px;
-            background-color: #fff;
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            z-index: 1;
-        }
-
-        .logo::before:first-child {
-            left: 10%;
-        }
-
-        .logo::before:last-child {
-            right: 10%;
-        }
-      header {
-            background-color: #333;
-            color: #fff;
-            padding: 10px;
-            text-align: center;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        header img {
-            width: 50px; /* Adjust the width of the logo */
-            height: auto; /* Maintain aspect ratio */
-        }
-
+        .logo {
+        margin-right: auto; /* Pushes the logo to the left */
+}
+    
         .menu-icon {
             display: none;
             flex-direction: column;
@@ -175,21 +113,13 @@
     <title>Contact Us Banner</title>
 </head>
 <body>
-    <header>
-        <div class="menu-icon" onclick="toggleMenu()">
-            <div class="line"></div>
-            <div class="line"></div>
-            <div class="line"></div>
-        </div>
-        <img src="your-logo.png" alt="Logo">
-        Your Website Name
-    </header>
-
+    
     <!-- Navigation Bar -->
     <nav>
-        <a href="#">Home</a>
+        <img src="./imgs/logo fav icon.jpg" alt="Logo" class="logo" width="50px" height="50px">
+        <a href="./index.html">Home</a>
         <a href="./shop.html">Shop</a>
-        <a href="#">Contact</a>
+        <a href="./contact.html">Contact</a>
         <div class="cart-section">
             <div class="cart-icon" onclick="openCart()">🛒 <span class="cart-count" id="cart-count">0</span></div>
         </div>
@@ -218,12 +148,21 @@
             <a href="tel:+79848386"><button>Contact Us</button></a>
         </div>
     </div>
+    <!-- Embed Google Maps using an iframe -->
+    <h2>Location</h2>
+<iframe
+width="100%"
+height="450"
+style="border:0"
+loading="lazy"
+allowfullscreen
+ src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3821.9178001359437!2d81.16722587438835!3d16.680996322771907!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a363fd22c63de29%3A0x266978a7e7f26815!2sKOTESWARADURGAPURAM%20Panchayat!5e0!3m2!1sen!2sin!4v1710812530638!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 
     <div class="contact-info">
         <h2>Contact Information</h2>
         <p>Email: info@yourclothingstore.com</p>
-        <p>Phone: +1 (555) 123-4567</p>
-        <p>For Bulk Orders, call us or visit <a href="http://www.shopping.com">Shopping.com</a></p>
+        <p>7981488386</p>
+        <p>For Bulk Orders, call us or visit <a href="https://ganeshgulipalli06.github.io/shopping/">Shopping.com</a></p>
     </div>
 
 </body>

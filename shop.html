@@ -24,23 +24,9 @@
     top: 0;
     z-index: 1000; /* Ensure it stays on top of other content */
 }
-
-
-header {
-            background-color: #333;
-            color: #fff;
-            padding: 10px;
-            text-align: center;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            
-        }
-
-        header img {
-            width: 50px; /* Adjust the width of the logo */
-            height: auto; /* Maintain aspect ratio */
-        }
+.logo {
+        margin-right: auto; /* Pushes the logo to the left */
+}
 
         .menu-icon {
             display: none;
@@ -241,6 +227,7 @@ header {
 <body>
     <!-- Navigation bar -->
     <nav>
+        <img src="./imgs/logo fav icon.jpg" alt="Logo" class="logo" width="50px" height="50px">
         <div>
             <a href="./index.html">Home</a>
             <a href="./shop.html">Shop</a>

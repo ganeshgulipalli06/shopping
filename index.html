@@ -21,7 +21,7 @@
             color: #333;
             scroll-behavior: smooth; /* Enable smooth scrolling */
         }
-           /* Logo styles */
+           /* Logo styles 
            .logo {
             display: flex;
             align-items: center;
@@ -38,7 +38,7 @@
             overflow: hidden;
         }
 
-        /* Circle in the middle (represents a shopping bag) */
+        /* Circle in the middle (represents a shopping bag) *
         .logo::after {
             content: '';
             display: block;
@@ -52,12 +52,12 @@
             transform: translate(-50%, -50%);
         }
 
-        /* Handles on the sides of the shopping bag */
+        /* Handles on the sides of the shopping bag 
         .logo::before {
             content: '';
             display: block;
             width: 20px;
-            height: 80px;
+            height: 30px;
             background-color: #fff;
             position: absolute;
             top: 50%;
@@ -71,7 +71,7 @@
 
         .logo::before:last-child {
             right: 10%;
-        }
+        }*/
   
         #offer-banner {
             background-color: #010101; /* Background color for the banner */
@@ -101,7 +101,7 @@
         .offer-item:hover {
             color: #ffd700; /* Text color on hover */
         }
-      /* Header Styles */
+      /* Header Styles *
       header {
             background-color: #333;
             color: #fff;
@@ -112,13 +112,13 @@
             align-items: center;
             position: sticky;
               top: 0;
-            z-index: 1000; /* Ensure it stays on top of other content */
+            z-index: 1000; /* Ensure it stays on top of other content *
         }
 
         header img {
-            width: 50px; /* Adjust the width of the logo */
-            height: auto; /* Maintain aspect ratio */
-        }
+            width: 50px; /* Adjust the width of the logo *
+            height: auto; /* Maintain aspect ratio 
+        }*/
 
         .menu-icon {
             display: none;
@@ -161,6 +161,10 @@
             padding: 10px;
             margin-right: 10px;
         }
+
+        .logo {
+        margin-right: auto; /* Pushes the logo to the left */
+}
 
         .cart-icon {
             display: inline-block;
@@ -648,19 +652,20 @@ button.next {
             <a href="#contact">Contact</a>
             <a href="#about">About</a>
         </nav>
-    </header> -->
+    </header>
     <header>
         <div class="menu-icon" onclick="toggleMenu()">
             <div class="line"></div>
             <div class="line"></div>
             <div class="line"></div>
         </div>
-        <img src="your-logo.png" alt="Logo">
-        Your Website Name
-    </header>
+    </header> -->
 
     <!-- Navigation Bar -->
     <nav>
+        
+            <img src="./imgs/logo fav icon.jpg" alt="Logo" class="logo" width="50px" height="50px">
+        
         <a href="#">Home</a>
         <a href="./shop.html">Shop</a>
         <a href="#">Contact</a>
@@ -741,6 +746,7 @@ button.next {
                     <h3>Men's Wear 2</h3>
                       <p>price="189$"</p>
                     <button onclick="location.href='#checkout'" >Buy Now</button>
+                    <button class="buy-now-button" onclick="buyNow('Card A', 19.99)">🛒</button>
                 </div>
             </div>
             <div class="card" onclick="viewCardDetails('Men\'s Wear 3', 'High-quality description for Men\'s Wear 2.', 'menswear2.jpg')">
@@ -750,6 +756,7 @@ button.next {
                     <h3>Men's Wear 3</h3>
                     <p>price="159$"</p>
                     <button onclick="showOrderForm('Men\'s Wear 1', 29.99)">Buy Now</button>
+                    <button class="buy-now-button" onclick="buyNow('Card A', 19.99)">🛒</button>
                 </div>
             </div>
             <div class="card" onclick="viewCardDetails('Men\'s Wear 4', 'High-quality description for Men\'s Wear 2.', 'menswear2.jpg')">
@@ -759,6 +766,7 @@ button.next {
                     <h3>Men's Wear 4</h3>
                     <p>price="129$"</p>
                     <button onclick="showOrderForm('Men\'s Wear 1', 29.99)">Buy Now</button>
+                    <button class="buy-now-button" onclick="buyNow('Card A', 19.99)">🛒</button>
                 </div>
             </div>
             <div class="card" onclick="viewCardDetails('Men\'s Wear 5', 'High-quality description for Men\'s Wear 2.', 'menswear2.jpg')">
@@ -768,6 +776,7 @@ button.next {
                     <h3>Men's Wear 5</h3>
                     <p>price="159$"</p>
                     <button onclick="showOrderForm('Men\'s Wear 1', 29.99)">Buy Now</button>
+                    <button class="buy-now-button" onclick="buyNow('Card A', 19.99)">🛒</button>
                 </div>
             </div>
             <div class="card" onclick="viewCardDetails('Men\'s Wear 6', 'High-quality description for Men\'s Wear 2.', 'menswear2.jpg')">
@@ -777,6 +786,7 @@ button.next {
                     <h3>Men's Wear 6</h3>
                     <p>price="119$"</p>
                     <button onclick="showOrderForm('Men\'s Wear 1', 29.99)">Buy Now</button>
+                    <button class="buy-now-button" onclick="buyNow('Card A', 19.99)">🛒</button>
                 </div>
             </div>
             <div class="card" onclick="viewCardDetails('Men\'s Wear 2', 'High-quality description for Men\'s Wear 2.', 'menswear2.jpg')">
@@ -785,6 +795,7 @@ button.next {
                     <h3>Men's Wear 7</h3>
                     <p>price="10$"</p>
                     <button onclick="showOrderForm('Men\'s Wear 1', 29.99)">Buy Now</button>
+                    <button class="buy-now-button" onclick="buyNow('Card A', 19.99)">🛒</button>
                 </div>
             </div>
             <div class="card" onclick="viewCardDetails('Men\'s Wear 2', 'High-quality description for Men\'s Wear 2.', 'menswear2.jpg')">
@@ -793,6 +804,7 @@ button.next {
                     <h3>Men's Wear 8</h3>
                     <p>price="19$"</p>
                     <button onclick="showOrderForm('Men\'s Wear 1', 29.99)">Buy Now</button>
+                    <button class="buy-now-button" onclick="buyNow('Card A', 19.99)">🛒</button>
                 </div>
             </div>
             <div class="card" onclick="viewCardDetails('Men\'s Wear 2', 'High-quality description for Men\'s Wear 2.', 'menswear2.jpg')">
@@ -802,6 +814,7 @@ button.next {
                     <h3>Men's Wear 9</h3>
                     <p>price="18$"</p>
                     <button onclick="showOrderForm('Men\'s Wear 1', 29.99)">Buy Now</button>
+                    <button class="buy-now-button" onclick="buyNow('Card A', 19.99)">🛒</button>
                 </div>
             </div>
             <div class="card" onclick="viewCardDetails('Men\'s Wear 2', 'High-quality description for Men\'s Wear 2.', 'menswear2.jpg')">
@@ -810,6 +823,7 @@ button.next {
                     <h3>Men's Wear 10</h3>
                     <p>price="85$"</p>
                     <button onclick="showOrderForm('Men\'s Wear 1', 29.99)">Buy Now</button>
+                    <button class="buy-now-button" onclick="buyNow('Card A', 19.99)">🛒</button>
                 </div>
             </div>
             <!-- Add more cards as needed -->
@@ -836,6 +850,7 @@ button.next {
                     <h3>Kids Wear 1</h3>
                     <p>price = $20</p>
                     <button onclick="showOrderForm('Men\'s Wear 1', 29.99)">Buy Now</button>
+                    <button class="buy-now-button" onclick="buyNow('Card A', 19.99)">🛒</button>
                 </div>
             </div>
             <div class="card" onclick="viewCardDetails('Kids Wear 2', 'High-quality description for Kids Wear 2.', 'kidswear2.jpg')">
@@ -844,6 +859,7 @@ button.next {
                     <h3>Kids Wear 2</h3>
                     <p>price="5$"</p>
                     <button onclick="showOrderForm('Men\'s Wear 1', 29.99)">Buy Now</button>
+                    <button class="buy-now-button" onclick="buyNow('Card A', 19.99)">🛒</button>
                 </div>
             </div>
             <div class="card" onclick="viewCardDetails('Kids Wear 2', 'High-quality description for Kids Wear 2.', 'kidswear2.jpg')">
@@ -852,6 +868,8 @@ button.next {
                     <h3>Kids Wear 2</h3>
                     <p>price="9$"</p>
                     <button onclick="showOrderForm('Men\'s Wear 1', 29.99)">Buy Now</button>
+                    <button class="buy-now-button" onclick="buyNow('Card A', 19.99)">🛒</button>
+                    
                 </div>
             </div>
             <div class="card" onclick="viewCardDetails('Kids Wear 2', 'High-quality description for Kids Wear 2.', 'kidswear2.jpg')">
@@ -860,6 +878,7 @@ button.next {
                     <h3>Kids Wear 2</h3>
                     <p>price="13$"</p>
                     <button onclick="showOrderForm('Men\'s Wear 1', 29.99)">Buy Now</button>
+                    <button class="buy-now-button" onclick="buyNow('Card A', 19.99)">🛒</button>
                 </div>
             </div>
             <div class="card" onclick="viewCardDetails('Kids Wear 2', 'High-quality description for Kids Wear 2.', 'kidswear2.jpg')">
@@ -868,6 +887,7 @@ button.next {
                     <h3>Kids Wear 2</h3>
                     <p>price="17$"</p>
                     <button onclick="showOrderForm('Men\'s Wear 1', 29.99)">Buy Now</button>
+                    <button class="buy-now-button" onclick="buyNow('Card A', 19.99)">🛒</button>
                 </div>
             </div>
             <div class="card" onclick="viewCardDetails('Kids Wear 2', 'High-quality description for Kids Wear 2.', 'kidswear2.jpg')">
@@ -876,6 +896,7 @@ button.next {
                     <h3>Kids Wear 2</h3>
                     <p>price="25$"</p>
                     <button onclick="showOrderForm('Men\'s Wear 1', 29.99)">Buy Now</button>
+                    <button class="buy-now-button" onclick="buyNow('Card A', 19.99)">🛒</button>
                 </div>
             </div>
             <div class="card" onclick="viewCardDetails('Kids Wear 2', 'High-quality description for Kids Wear 2.', 'kidswear2.jpg')">
@@ -884,6 +905,7 @@ button.next {
                     <h3>Kids Wear 2</h3>
                     <p>price="9$"</p>
                     <button onclick="showOrderForm('Men\'s Wear 1', 29.99)">Buy Now</button>
+                    <button class="buy-now-button" onclick="buyNow('Card A', 19.99)">🛒</button>
                 </div>
             </div>
             <div class="card" onclick="viewCardDetails('Kids Wear 2', 'High-quality description for Kids Wear 2.', 'kidswear2.jpg')">
@@ -892,6 +914,7 @@ button.next {
                     <h3>Kids Wear 2</h3>
                     <p>price="16$"</p>
                     <button onclick="showOrderForm()">Buy Now</button>
+                    <button class="buy-now-button" onclick="buyNow('Card A', 19.99)">🛒</button>
                 </div>
             </div>
             <div class="card" onclick="viewCardDetails('Kids Wear 2', 'High-quality description for Kids Wear 2.', 'kidswear2.jpg')">
@@ -900,6 +923,9 @@ button.next {
                     <h3>Kids Wear 2</h3>
                     <p>price="11$"</p>
                     <button onclick="showOrderForm('Men\'s Wear 1', 29.99)">Buy Now</button>
+                    <button class="buy-now-button" onclick="buyNow('Card A', 19.99)">🛒</button>
+                    
+                    
                 </div>
             </div>
             <div class="card" onclick="viewCardDetails('Kids Wear 2', 'High-quality description for Kids Wear 2.', 'kidswear2.jpg')">
@@ -908,6 +934,7 @@ button.next {
                     <h3>Kids Wear 2</h3>
                     <p>price="12$"</p>
                     <button onclick="showOrderForm('Men\'s Wear 1', 29.99)">Buy Now</button>
+                    <button class="buy-now-button" onclick="buyNow('Card A', 19.99)">🛒</button>
                 </div>
             </div>
             <!-- Add more cards as needed -->
@@ -934,6 +961,7 @@ button.next {
                     <h3>Bridal wear 1</h3>
                     <p>price="25$"</p>
                     <button onclick="showOrderForm('Men\'s Wear 1', 29.99)">Buy Now</button>
+                    <button class="buy-now-button" onclick="buyNow('Card A', 19.99)">🛒</button>
                 </div>
             </div>
             <div class="card" onclick="viewCardDetails('Bridal Collection 2', 'High-quality description for Bridal Collection 2.', 'bridal2.jpg')">
@@ -942,6 +970,7 @@ button.next {
                     <h3>Bridal wear 2</h3>
                     <p>price="35$"</p>
                     <button onclick="showOrderForm('Men\'s Wear 1', 29.99)">Buy Now</button>
+                    <button class="buy-now-button" onclick="buyNow('Card A', 19.99)">🛒</button>
                 </div>
             </div>
             <div class="card" onclick="viewCardDetails('Bridal Collection 1', 'High-quality description for Bridal Collection 1.', 'bridal1.jpg')">
@@ -950,6 +979,7 @@ button.next {
                     <h3>Bridal wear 3</h3>>
                     <p>price="42$"</p>
                     <button onclick="showOrderForm('Men\'s Wear 1', 29.99)">Buy Now</button>
+                    <button class="buy-now-button" onclick="buyNow('Card A', 19.99)">🛒</button>
                 </div>
             </div>
             <div class="card" onclick="viewCardDetails('Bridal Collection 1', 'High-quality description for Bridal Collection 1.', 'bridal1.jpg')">
@@ -958,6 +988,7 @@ button.next {
                     <h3>Bridal wear 4</h3>
                     <p>price="55$"</p>
                     <button onclick="showOrderForm('Men\'s Wear 1', 29.99)">Buy Now</button>
+                    <button class="buy-now-button" onclick="buyNow('Card A', 19.99)">🛒</button>
                 </div>
             </div>
             <div class="card" onclick="viewCardDetails('Bridal Collection 1', 'High-quality description for Bridal Collection 1.', 'bridal1.jpg')">
@@ -966,6 +997,7 @@ button.next {
                     <h3>Bridal wear 5</h3>
                     <p>price="69$"</p>
                     <button onclick="showOrderForm('Men\'s Wear 1', 29.99)">Buy Now</button>
+                    <button class="buy-now-button" onclick="buyNow('Card A', 19.99)">🛒</button>
                 </div>
             </div>
             <div class="card" onclick="viewCardDetails('Bridal Collection 1', 'High-quality description for Bridal Collection 1.', 'bridal1.jpg')">
@@ -974,6 +1006,7 @@ button.next {
                     <h3>Bridal wear 6</h3>
                     <p>price="75$"</p>
                     <button onclick="showOrderForm('Men\'s Wear 1', 29.99)">Buy Now</button>
+                    <button class="buy-now-button" onclick="buyNow('Card A', 19.99)">🛒</button>
                 </div>
             </div>
             <div class="card" onclick="viewCardDetails('Bridal Collection 1', 'High-quality description for Bridal Collection 1.', 'bridal1.jpg')">
@@ -982,6 +1015,7 @@ button.next {
                     <h3>Bridal wear 7</h3>
                     <p>price="88$"</p>
                     <button onclick="showOrderForm('Men\'s Wear 1', 29.99)">Buy Now</button>
+                    <button class="buy-now-button" onclick="buyNow('Card A', 19.99)">🛒</button>
                 </div>
             </div>
             <div class="card" onclick="viewCardDetails('Bridal Collection 1', 'High-quality description for Bridal Collection 1.', 'bridal1.jpg')">
@@ -990,6 +1024,7 @@ button.next {
                     <h3>Bridal wear 8</h3>
                     <p>price="93$"</p>
                     <button onclick="showOrderForm('Men\'s Wear 1', 29.99)">Buy Now</button>
+                    <button class="buy-now-button" onclick="buyNow('Card A', 19.99)">🛒</button>
                 </div>
             </div>
             <div class="card" onclick="viewCardDetails('Bridal Collection 1', 'High-quality description for Bridal Collection 1.', 'bridal1.jpg')">
@@ -998,6 +1033,7 @@ button.next {
                     <h3>Bridal wear 9</h3>
                     <p>price="110$"</p>
                     <button onclick="showOrderForm('Men\'s Wear 1', 29.99)">Buy Now</button>
+                    <button class="buy-now-button" onclick="buyNow('Card A', 19.99)">🛒</button>
             </div>
             <div class="card" onclick="viewCardDetails('Bridal Collection 1', 'High-quality description for Bridal Collection 1.', 'bridal1.jpg')">
                 <img src="./imgs/bridal-10 (1).jpg" alt="Bridal Collection 1">
@@ -1005,6 +1041,7 @@ button.next {
                     <h3>Bridal wear 10</h3>
                     <p>price="129$"</p>
                     <button onclick="showOrderForm('Men\'s Wear 1', 29.99)">Buy Now</button>
+                    <button class="buy-now-button" onclick="buyNow('Card A', 19.99)">🛒</button>
                 </div>
                 <div class="card" onclick="viewCardDetails('Bridal Collection 1', 'High-quality description for Bridal Collection 1.', 'bridal1.jpg')">
                     <img src="./imgs/bridal-10 (1).jpg" alt="Bridal Collection 1">
@@ -1012,6 +1049,7 @@ button.next {
                         <h3>Bridal wear 10</h3>
                         <p>price="129$"</p>
                         <button onclick="showOrderForm('Men\'s Wear 1', 29.99)">Buy Now</button>
+                        <button class="buy-now-button" onclick="buyNow('Card A', 19.99)">🛒</button>
                     </div>
                     
             </div>
@@ -1125,15 +1163,51 @@ button.next {
     <img src="./imgs/whats app icon.png" alt="WhatsApp Icon">
   </div>
   
-    <section id="contact">
-        <h2>Contact Us</h2>
-        <p>Have any questions? Feel free to contact us!</p>
-    </section>
-
+   
     <section id="about">
         <h2>About Us</h2>
         <p>Learn more about our company and mission.</p>
     </section>
+
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <p>Have any questions? Feel free to contact us!</p>
+        <div style="display: flex; justify-content: center; align-items: center; background-color: #f4f4f4; padding: 20px 0;">
+            <!-- Instagram -->
+            <div style="margin: 0 10px; font-size: 16px; color: #333; cursor: pointer; transition: color 0.3s ease;">
+                <a href="https://www.instagram.com/" style="text-decoration: none; color: #333;">
+                    <img src="https://img.icons8.com/ios-filled/50/000000/instagram-new.png" alt="Instagram" style="margin-right: 5px;">
+                    Instagram
+                </a>
+            </div>
+        
+            <!-- LinkedIn -->
+            <div style="margin: 0 10px; font-size: 16px; color: #333; cursor: pointer; transition: color 0.3s ease;">
+                <a href="https://www.linkedin.com/" style="text-decoration: none; color: #333;">
+                    <img src="https://img.icons8.com/ios-filled/50/000000/linkedin-circled.png" alt="LinkedIn" style="margin-right: 5px;">
+                    LinkedIn
+                </a>
+            </div>
+        
+            <!-- Mail -->
+            <div style="margin: 0 10px; font-size: 16px; color: #333; cursor: pointer; transition: color 0.3s ease;">
+                <a href="mailto:example@example.com" style="text-decoration: none; color: #333;">
+                    <img src="https://img.icons8.com/ios-filled/50/000000/email.png" alt="Mail" style="margin-right: 5px;">
+                    example@example.com
+                </a>
+            </div>
+        
+            <!-- Phone number -->
+            <div style="margin: 0 10px; font-size: 16px; color: #333; cursor: pointer; transition: color 0.3s ease;">
+                <a href="tel: +7981488386" style="text-decoration: none; color: #333;">
+                    <img src="https://img.icons8.com/ios-filled/50/000000/phone.png" alt="Phone" style="margin-right: 5px;">
+                    +91
+                </a>
+            </div>
+        </div>
+        
+    </section>
+
 
     <footer>
         <p>&copy; 2024 Your Shopping Website</p>
